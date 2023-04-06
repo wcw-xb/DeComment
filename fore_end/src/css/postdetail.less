@@ -1,0 +1,219 @@
+.wrapper-wrapper {
+    width: 70%;
+    // border: 1px solid rgba(90, 96, 111, .3);
+    padding: 10px;
+    // background-color: rgb(52, 53, 65);
+    color: #fff;
+}
+
+.post-detail {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.post-title-wrapper {
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+
+    .post-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        flex: 8;
+        height: 150px;
+
+        h3 {
+            font-size: 28px;
+            margin: 0;
+        }
+
+        .post-id {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .post-desp {
+            font-size: 16px;
+            margin: 0;
+        }
+    }
+
+    .point-wrapper {
+        position: sticky;
+
+        svg {
+            width: 30px;
+            height: 30px;
+            fill: #fff;
+        }
+
+        .star-wrapper {
+            user-select: none;
+            position: absolute;
+            width: 180px;
+            background-color: #343541;
+            right: 0px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, .4);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+
+            .s-tools {
+                width: 100%;
+                height: 40px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                svg {
+                    flex: 2;
+                    width: 20px;
+                    height: 20px;
+                }
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, .1);
+                }
+
+                span {
+                    flex: 8;
+                }
+            }
+
+            span {
+                color: #fff;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.post-tip {
+    display: flex;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #4b5863;
+
+    .review {
+        margin-right: 20px;
+        font-size: 14px;
+
+        .r-num {
+            font-size: 14px;
+        }
+    }
+}
+
+.s-icon {
+    display: flex;
+    height: 40px;
+    line-height: 40px;
+    align-items: center;
+    border-bottom: 1px solid #4b5863;
+
+    svg {
+        width: 20px;
+        height: 20px;
+        margin: 5px;
+        padding: 10px;
+
+        &:hover {
+            background-color: #162d3f;
+
+            & path {
+                fill: #1d9bf0;
+            }
+
+            border-radius: 12px;
+
+        }
+    }
+
+
+}
+
+.r-num {
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.comment-box-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(36, 45, 52, .4);
+    display: flex;
+    justify-content: center;
+}
+
+.comment-box {
+    margin-top: 100px;
+    width: 500px;
+    height: 200px;
+    overflow: auto;
+    background-color: #0f0e0e;
+    padding: 30px;
+    border-radius: 20px;
+    position: relative;
+
+    .submit {
+        width: 60px;
+        height: 40px;
+        border-radius: 15px;
+        position: absolute;
+        right: 20px;
+        bottom: 30px;
+        background-color: #1d9bf0;
+        border: none;
+        outline: none;
+        font-weight: bold;
+        color: #fff;
+
+        &:hover {
+            background-color: #2ba3f4;
+        }
+    }
+
+    .comment {
+        display: flex;
+        align-items: start;
+
+        svg {
+            width: 50px;
+            height: 50px;
+        }
+
+        .review {
+            flex: 1;
+            height: 100%;
+
+            div {
+                color: #fff;
+                border: none;
+            }
+
+            .public-DraftEditorPlaceholder-inner {
+                color: #71767b;
+            }
+
+            .public-DraftEditor-content {
+                padding-top: 10px;
+                height: 150px;
+                overflow: auto;
+            }
+        }
+
+    }
+}
+.all-comment{
+    background-color: rgba(255, 255, 255, .3);
+}

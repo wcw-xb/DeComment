@@ -1,0 +1,78 @@
+.post-wrapper {
+  width: 100%;
+  height: 100%;
+}
+.post-wrapper h2 {
+  color: #fff;
+  user-select: none;
+}
+.post-wrapper .l-wrapper {
+  width: 100%;
+  height: 500px;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.post-wrapper .l-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.post-wrapper .post {
+  padding: 10px;
+  display: flex;
+  width: 95%;
+  height: 100px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.post-wrapper .post:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.post-wrapper .post .img {
+  width: 50px;
+  height: 50px;
+}
+.post-wrapper .post .img svg {
+  width: 100%;
+  height: 100%;
+}
+.post-wrapper .post .post-info {
+  flex-grow: 1;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.post-wrapper .post .post-info .u-title {
+  color: #fff;
+}
+.post-wrapper .post .post-info .u-title .u-name {
+  font-weight: bold;
+}
+.post-wrapper .post .post-info .u-title .u-addr,
+.post-wrapper .post .post-info .u-title .u-create {
+  color: #c6ccd0;
+}
+.post-wrapper .post .post-info .u-disp {
+  color: #fff;
+}
+.post-wrapper .post .post-info .u-tools div {
+  display: flex;
+  align-items: center;
+}
+.post-wrapper .post .post-info .u-tools div svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+.post-wrapper .post .post-info .u-tools div svg path {
+  fill: #6f6f6a;
+}
+.post-wrapper .post .post-info .u-tools div span {
+  color: #6f6f6a;
+  user-select: none;
+}
+.post-wrapper .post .post-info .u-tools:hover svg path {
+  fill: #fff;
+}
+.post-wrapper .post .post-info .u-tools:hover span {
+  color: #fff;
+}
