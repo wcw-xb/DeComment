@@ -25,10 +25,17 @@
         flex: 8;
         height: 150px;
 
-        h3 {
-            font-size: 28px;
-            margin: 0;
+        .post-info-t {
+            display: flex;
+            align-items: center;
+            h3 {
+                font-size: 28px;
+                margin: 0;
+                margin-right: 20px;
+                vertical-align: middle;
+            }
         }
+
 
         .post-id {
             font-size: 16px;
@@ -214,6 +221,94 @@
 
     }
 }
-.all-comment{
-    background-color: rgba(255, 255, 255, .3);
+
+.all-comment {
+
+    // background-color: rgba(255, 255, 255, .3);
+    .per_comment {
+        display: flex;
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, .3);
+        padding: 10px;
+        &:hover{
+            background-color: rgba(255, 255, 255, .02);
+        }
+
+        .icon {
+            // 评论图标
+            flex: 1;
+
+            svg {
+                width: 40px;
+                height: 40px;
+
+                path {
+                    fill: #2db3ff;
+                }
+            }
+        }
+
+        .content-wrapper {
+            // 评论右侧
+            flex: 9;
+            display: flex;
+            flex-direction: column;
+
+            .user {
+                display: flex;
+
+                .addr {
+                    font-weight: bold;
+                    color: #fff;
+                    margin-right: 20px;
+                }
+
+                .time {
+                    color: #71767b;
+                }
+            }
+
+            .content {
+                color: #e7e9ea;
+            }
+
+            .tool {
+                // 质押样式
+                width: 100%;
+                display: flex;
+                align-items: center;
+                padding-top: 10px;
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 10px;
+                    padding: 5px;
+                }
+
+                span {
+                    flex: 1;
+                    user-select: none;
+                }
+
+                &:hover {
+                    svg {
+                        background-color: #21465f;
+                        border-radius: 5px;
+
+                        & path {
+                            fill: #1d9bf0;
+                        }
+                    }
+
+                    span {
+                        color: #1d9bf0;
+                    }
+                }
+            }
+        }
+    }
+}
+.right-wrapper {
+    overflow: auto;
 }

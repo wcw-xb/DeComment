@@ -21,9 +21,15 @@
   flex: 8;
   height: 150px;
 }
-.post-title-wrapper .post-title h3 {
+.post-title-wrapper .post-title .post-info-t {
+  display: flex;
+  align-items: center;
+}
+.post-title-wrapper .post-title .post-info-t h3 {
   font-size: 28px;
   margin: 0;
+  margin-right: 20px;
+  vertical-align: middle;
 }
 .post-title-wrapper .post-title .post-id {
   font-size: 16px;
@@ -174,6 +180,70 @@
   height: 150px;
   overflow: auto;
 }
-.all-comment {
-  background-color: rgba(255, 255, 255, 0.3);
+.all-comment .per_comment {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px;
+}
+.all-comment .per_comment:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+.all-comment .per_comment .icon {
+  flex: 1;
+}
+.all-comment .per_comment .icon svg {
+  width: 40px;
+  height: 40px;
+}
+.all-comment .per_comment .icon svg path {
+  fill: #2db3ff;
+}
+.all-comment .per_comment .content-wrapper {
+  flex: 9;
+  display: flex;
+  flex-direction: column;
+}
+.all-comment .per_comment .content-wrapper .user {
+  display: flex;
+}
+.all-comment .per_comment .content-wrapper .user .addr {
+  font-weight: bold;
+  color: #fff;
+  margin-right: 20px;
+}
+.all-comment .per_comment .content-wrapper .user .time {
+  color: #71767b;
+}
+.all-comment .per_comment .content-wrapper .content {
+  color: #e7e9ea;
+}
+.all-comment .per_comment .content-wrapper .tool {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+}
+.all-comment .per_comment .content-wrapper .tool svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  padding: 5px;
+}
+.all-comment .per_comment .content-wrapper .tool span {
+  flex: 1;
+  user-select: none;
+}
+.all-comment .per_comment .content-wrapper .tool:hover svg {
+  background-color: #21465f;
+  border-radius: 5px;
+}
+.all-comment .per_comment .content-wrapper .tool:hover svg path {
+  fill: #1d9bf0;
+}
+.all-comment .per_comment .content-wrapper .tool:hover span {
+  color: #1d9bf0;
+}
+.right-wrapper {
+  overflow: auto;
 }

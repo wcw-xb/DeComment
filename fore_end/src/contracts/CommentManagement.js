@@ -60,6 +60,11 @@ export const CommentManagementABI = [
 				"internalType": "string",
 				"name": "comment_text",
 				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "comment_time",
+				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
@@ -67,4 +72,4 @@ export const CommentManagementABI = [
 	}
 ]
 
-export const CommentManagementAddress = "0xCDA49DD346D96b7Bb71F70a91C62264Fa92a58ac";
+export const CommentManagementAddress = "0x7ffF43925AC140460fE68ECdd2D576014Cc8FC4a";
