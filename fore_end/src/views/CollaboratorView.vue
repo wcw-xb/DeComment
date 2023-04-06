@@ -2,8 +2,6 @@
 
 </template>
 
-
 <script>
 
 </script>
-
