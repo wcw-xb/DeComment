@@ -1,0 +1,162 @@
+.home-search-wrapper {
+  position: sticky;
+  width: 100%;
+  height: 80px;
+  top: 0;
+  background-color: #343541;
+}
+.home-search-wrapper .search-wrapper {
+  width: 50%;
+  height: 45px;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.home-search-wrapper #search-input {
+  width: 500px;
+  height: 100%;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  border: 2px solid #fff;
+  background-color: transparent;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 18px;
+  padding-left: 10px;
+}
+.home-search-wrapper .search-btn {
+  height: 100%;
+  width: 80px;
+  outline: none;
+  border: 2px solid #fff;
+  border-radius: 0 5px 5px 0;
+  color: #505289;
+}
+.home-search-wrapper .search-btn:hover {
+  color: #000;
+}
+.home-search-wrapper .main-title-right {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+.home-search-wrapper .main-title-right .publish-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+}
+.home-search-wrapper .main-title-right .publish-div:hover svg path {
+  fill: #ff8099;
+}
+.home-search-wrapper .main-title-right .publish-div:hover span {
+  color: #ff94aa;
+}
+.home-search-wrapper .main-title-right .publish-div svg {
+  width: 15px;
+  height: 15px;
+}
+.home-search-wrapper .main-title-right .publish-div svg path {
+  fill: #ff6d8a;
+}
+.home-search-wrapper .main-title-right .publish-div span {
+  color: #b9b9bd;
+  font-size: 12px;
+  user-select: none;
+}
+.home-search-wrapper .user-box {
+  width: 150px;
+  height: 45px;
+  background-color: #292a31;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 45px;
+  user-select: none;
+  color: #fff;
+}
+.home-search-wrapper .user-box .user-card {
+  display: none;
+  width: 400px;
+  height: 200px;
+  background-color: #292a31;
+  position: absolute;
+  right: 0;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.home-search-wrapper .user-box .user-card::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  top: -20px;
+  right: 0;
+}
+.home-search-wrapper .user-box .user-card > span {
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 10px;
+  font-size: 14px;
+}
+.home-search-wrapper .user-box:hover .user-card {
+  display: block;
+}
+.home-search-wrapper .user-box .col {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  text-align: left;
+}
+.home-search-wrapper .user-box .col svg {
+  width: 30px;
+  height: 30px;
+}
+.home-search-wrapper .user-box .col li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home-search-wrapper .user-box .col li:hover span {
+  color: #fff;
+}
+.home-search-wrapper .user-box .col span {
+  color: #6f7078;
+  font-size: 12px;
+}
+.home-search-wrapper .user-box .personal {
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+}
+.home-search-wrapper .user-box .personal a {
+  color: #fff;
+  font-size: 14px;
+}
+.home-search-wrapper .user-box .personal .logout-btn {
+  position: relative;
+  width: 60px;
+}
+.home-search-wrapper .user-box .personal .logout-btn svg {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+}
+.home-search-wrapper .user-box .personal .logout-btn a {
+  margin-left: 20px;
+  color: #6f7078;
+}
+.home-search-wrapper .user-box .personal .logout-btn:hover a {
+  color: #ff7373;
+}

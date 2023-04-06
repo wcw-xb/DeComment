@@ -1,5 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import IndexView from '../views/IndexView.vue'
+import isMetaMaskLoggedIn from '../js/metamask';
+
 
 const routes = [
   {
@@ -51,5 +53,18 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes
 })
+
+router.beforeEach(async (to, from, next) => {
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    const isLoggedIn = await isMetaMaskLoggedIn();
+    if (!isLoggedIn) {
+      next({ name: 'login' });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+});
 
 export default router

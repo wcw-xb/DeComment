@@ -1,0 +1,199 @@
+.home-search-wrapper {
+    position: sticky;
+    width: 100%;
+    height: 80px;
+    top: 0;
+    background-color: #343541;
+
+    // border: 1px solid red;
+    .search-wrapper {
+        width: 50%;
+        height: 45px;
+        display: flex;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    #search-input {
+        width: 500px;
+        height: 100%;
+        border-radius: 5px 0 0 5px;
+        outline: none;
+        border: 2px solid #fff;
+        background-color: transparent;
+        box-sizing: border-box;
+        color: #fff;
+        font-size: 18px;
+        padding-left: 10px;
+    }
+
+    .search-btn {
+        height: 100%;
+        width: 80px;
+        outline: none;
+        border: 2px solid #fff;
+        border-radius: 0 5px 5px 0;
+        color: #505289;
+
+        &:hover {
+            color: #000;
+        }
+    }
+
+    .main-title-right {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+
+        .publish-div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 20px;
+
+            &:hover {
+                svg path {
+                    fill: #ff8099;
+                }
+
+                span {
+                    color: #ff94aa;
+                }
+            }
+
+            svg {
+                width: 15px;
+                height: 15px;
+
+                & path {
+                    fill: #ff6d8a;
+                }
+            }
+
+            span {
+                color: #b9b9bd;
+                font-size: 12px;
+                user-select: none;
+            }
+        }
+    }
+
+    .user-box {
+        width: 150px;
+        height: 45px;
+        background-color: #292a31;
+        border-radius: 8px;
+        text-align: center;
+        line-height: 45px;
+        user-select: none;
+        color: #fff;
+
+        .user-card {
+            display: none;
+            width: 400px;
+            height: 200px;
+            background-color: #292a31;
+            position: absolute;
+            right: 0;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-sizing: border-box;
+            padding-left: 20px;
+            padding-right: 20px;
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 20px;
+                top: -20px;
+                right: 0;
+            }
+
+            &>span {
+                display: block;
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, .3);
+                padding-bottom: 10px;
+                font-size: 14px;
+            }
+        }
+
+        &:hover {
+            .user-card {
+                display: block;
+            }
+        }
+
+        .col {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            margin-top: 10px;
+
+            svg {
+                width: 30px;
+                height: 30px;
+            }
+
+            li {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                &:hover {
+                    span {
+                        color: #fff;
+                    }
+                }
+            }
+
+            text-align: left;
+
+            span {
+                color: #6f7078;
+                font-size: 12px;
+            }
+        }
+
+        .personal {
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+
+            a {
+                color: #fff;
+                font-size: 14px;
+            }
+
+            .logout-btn {
+                position: relative;
+                width: 60px;
+
+                svg {
+                    width: 14px;
+                    height: 14px;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: 0;
+                }
+
+                a {
+                    margin-left: 20px;
+                    color: #6f7078;
+                }
+
+                &:hover {
+                    a {
+                        color: rgb(255, 115, 115);
+                    }
+                }
+            }
+        }
+    }
+}
