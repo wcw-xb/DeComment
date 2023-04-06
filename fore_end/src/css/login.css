@@ -1,0 +1,47 @@
+.login-wrapper {
+  width: 100;
+  height: 100%;
+  background-color: #fff;
+}
+.login-wrapper .llw {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  left: 50%;
+  top: 50px;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.login-wrapper .llw .metamask-wrapper {
+  margin-top: 50px;
+  width: 100%;
+  height: 200px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+.login-wrapper .llw .metamask-wrapper .metamask-btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 40px;
+  width: 50%;
+  height: 50px;
+  background-color: #333333;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-wrapper .llw .metamask-wrapper .metamask-btn:hover {
+  background-color: #000000;
+}
+.login-wrapper .llw .metamask-wrapper .metamask-btn img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+.login-wrapper .llw .metamask-wrapper .metamask-btn span {
+  color: #fff;
+  font-size: 18px;
+}

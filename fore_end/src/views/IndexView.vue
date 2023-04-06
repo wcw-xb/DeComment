@@ -127,7 +127,6 @@
 import isMetaMaskLoggedIn from '@/js/metamask';
 import { PostManagementABI, PostManagementAddress } from "../contracts/PostManagement"
 import { mapMutations } from "vuex"
-import { Web3 } from "web3"
 
 export default {
     name: 'HomeView',
