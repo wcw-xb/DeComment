@@ -3,7 +3,7 @@
         <div class="left-nav">
             <div class="ul-title">DeComment</div>
             <ul>
-                <router-link to="/">
+                <router-link to="/" exact-active-class="active">
                     <li><svg t="1680422476997" class="icon" viewBox="0 0 1024 1024" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" p-id="2731" width="200" height="200">
                             <path
@@ -11,7 +11,7 @@
                                 fill="#8d8d94" p-id="2732"></path>
                         </svg><span>首页</span></li>
                 </router-link>
-                <router-link to="/notice">
+                <router-link to="/notice" exact-active-class="active">
                     <li><svg t="1680422701560" class="icon" viewBox="0 0 1024 1024" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" p-id="3797" width="200" height="200">
                             <path
@@ -22,7 +22,7 @@
                                 fill="#8d8d94" p-id="3799"></path>
                         </svg><span>通知</span></li>
                 </router-link>
-                <router-link to="/collaborator">
+                <router-link to="/collaborator" exact-active-class="active">
                     <li><svg t="1680422759979" class="icon" viewBox="0 0 1024 1024" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" p-id="4883" width="200" height="200">
                             <path
@@ -30,7 +30,7 @@
                                 p-id="4884" fill="#8d8d94"></path>
                         </svg><span>合作者</span></li>
                 </router-link>
-                <router-link to="/ranking">
+                <router-link to="/ranking" exact-active-class="active">
                     <li><svg t="1680455428291" class="icon" viewBox="0 0 1024 1024" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" p-id="14737" width="200" height="200">
                             <path
@@ -38,7 +38,7 @@
                                 fill="#8d8d94" p-id="14738"></path>
                         </svg><span>排行榜</span></li>
                 </router-link>
-                <router-link to="/user">
+                <router-link to="/user" exact-active-class="active">
                     <li><svg t="1680422787621" class="icon" viewBox="0 0 1024 1024" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" p-id="5909" width="200" height="200">
                             <path
@@ -52,7 +52,9 @@
             <div class="home-search-wrapper">
                 <div class="search-wrapper">
                     <input type="text" id="search-input" placeholder="用户名、地址、帖子" @keyup.enter="search_post">
-                    <button class="search-btn" @click="search_post">搜索</button>
+                    <router-link to="/">
+                        <button class="search-btn" @click="search_post">搜索</button>
+                    </router-link>
                 </div>
                 <div class="main-title-right">
                     <div class="publish-div"><svg t="1680451270046" class="icon" viewBox="0 0 1024 1024" version="1.1"
@@ -104,7 +106,8 @@
                                 </a>
                             </ul>
                             <div class="personal">
-                                <a href="#">个人主页</a>
+                                <!-- <a href="#">个人主页</a> -->
+                                <router-link to="/user">个人主页</router-link>
                                 <div class="logout-btn"><svg t="1680437583926" class="icon" viewBox="0 0 1042 1024"
                                         version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9873" width="200"
                                         height="200">
@@ -138,16 +141,14 @@ export default {
     mounted() {
         const $ = require('jquery');
         window.$ = window.Jquery = $;
-
-
-        $(() => {
-            $(".left-nav ul a").on("click", function () {
-                $(this).find("li").css('color', '#fff')
-                $(this).find("svg path").css('fill', '#fff')
-                $(this).siblings().find("li").css('color', '#8d8d94');
-                $(this).siblings().find("svg path").css('fill', '#8d8d94');
-            });
-        })
+        // $(() => {
+        //     $(".left-nav ul a").on("click", function () {
+        //         $(this).find("li").css('color', '#fff')
+        //         $(this).find("svg path").css('fill', '#fff')
+        //         $(this).siblings().find("li").css('color', '#8d8d94');
+        //         $(this).siblings().find("svg path").css('fill', '#8d8d94');
+        //     });
+        // })
     },
     created() {
 
@@ -177,6 +178,7 @@ export default {
         async search_post() {
             // 搜索功能的实现
             this.change_post_li_status();  // 标记当前属于搜索状态
+            this.$router.push("/");
             this.set_post_li([]);
             const web3 = this.$store.state.web3
             this.contractInstance = new web3.eth.Contract(PostManagementABI, PostManagementAddress);
@@ -197,6 +199,7 @@ export default {
             });
             this.set_post_li(this.search_p($("#search-input").val(), post_data));
             this.change_post_li_status();  // 标记当前不属于搜索状态
+            
         },
         search_p(key_word, data) {
             let new_data = [];
@@ -212,11 +215,19 @@ export default {
 }
 </script>
   
-<style scoped>
+<style scoped lang="less">
 .main-wrapper {
     width: 100%;
     height: 100%;
     display: flex;
+}
+.active{
+    span{
+        color: #fff;
+    }
+    & svg path {
+        fill: #fff;
+    }
 }
 
 @import "../css/search_wrapper.css";

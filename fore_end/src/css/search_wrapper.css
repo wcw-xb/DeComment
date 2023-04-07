@@ -4,6 +4,7 @@
   height: 80px;
   top: 0;
   background-color: #010409;
+  z-index: 99999;
 }
 .home-search-wrapper .search-wrapper {
   width: 50%;

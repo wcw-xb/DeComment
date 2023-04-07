@@ -6,12 +6,12 @@ import isMetaMaskLoggedIn from '../js/metamask';
 const routes = [
   {
     path: '/',
-    name: '',
+    name: 'home',
     component: IndexView,
     children: [
       {
         path: "",
-        name: "home",
+        name: "home2",
         component: () => import("../views/HomeView.vue"),
       },
       {

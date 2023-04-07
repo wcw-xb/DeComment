@@ -32,12 +32,6 @@
 .left-nav ul a li span {
   width: 80px;
 }
-.left-nav ul a:first-child svg path {
-  fill: #fff;
-}
-.left-nav ul a:first-child li {
-  color: #fff;
-}
 .right-wrapper {
   flex: 10;
   height: 100%;

@@ -131,14 +131,14 @@
   justify-content: center;
 }
 .comment-box {
-  margin-top: 100px;
-  width: 500px;
-  height: 200px;
+  width: 1000px;
+  height: 100px;
   overflow: auto;
   background-color: #0f0e0e;
   padding: 30px;
   border-radius: 20px;
-  position: relative;
+  position: absolute;
+  bottom: 0;
 }
 .comment-box .submit {
   width: 60px;
@@ -177,13 +177,15 @@
 }
 .comment-box .comment .review .public-DraftEditor-content {
   padding-top: 10px;
-  height: 150px;
+  height: 50px;
   overflow: auto;
 }
 .all-comment .per_comment {
   display: flex;
   align-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   padding: 10px;
 }
 .all-comment .per_comment:hover {
