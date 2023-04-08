@@ -53,7 +53,7 @@ export default {
 
                         this.setUserAddr(userAddress);  // 设置store的数据
                         // 用户已连接，跳转到主页
-                        this.$router.push({ name: 'home' });
+                        this.$router.push({ name: 'home2' });
 
                     } else {
                         // 地址不匹配，登录失败

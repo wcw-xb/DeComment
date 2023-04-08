@@ -51,13 +51,15 @@
         <div class="right-wrapper">
             <div class="home-search-wrapper">
                 <div class="search-wrapper">
-                    <input type="text" id="search-input" placeholder="用户名、地址、帖子" @keyup.enter="search_post">
+                    <input type="text" autocomplete="off" id="search-input" placeholder="用户名、地址、帖子"
+                        @keyup.enter="search_post">
                     <router-link to="/">
                         <button class="search-btn" @click="search_post">搜索</button>
                     </router-link>
                 </div>
                 <div class="main-title-right">
-                    <div class="publish-div"><svg t="1680451270046" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                    <div class="publish-div" @click="CreateBox">
+                        <svg t="1680451270046" class="icon" viewBox="0 0 1024 1024" version="1.1"
                             xmlns="http://www.w3.org/2000/svg" p-id="13674" width="200" height="200">
                             <path
                                 d="M1024 0 384 704 0 576 1024 0ZM1024 0 1024 896 483.414063 732.851565 1024 0ZM384 740.488282 364.578125 734.300781 512 1024 606.945313 805.5 476.078125 768 496.279297 960 384 740.488282Z"
@@ -121,12 +123,32 @@
                     </div>
                 </div>
             </div>
+
             <router-view />
         </div>
+    </div>
+    <div class="post-box-overlay" v-show="showPostBox" @click="CreateBox">
+        <div class="post-box" @click="refresh" @click.stop>
+            <h2 contenteditable="true" class="post-box-header" @click="clearTitle" @click.stop>
+                {{ title }}
+            </h2>
+            <p contenteditable="true" class="post-box-description description" @click="clearDescription" @click.stop>
+                {{ description }}
+            </p>
+            <p contenteditable="true" class="post-box-description address" @click="clearAddr" @click.stop>
+                {{ address }}
+            </p>
+            <p contenteditable="true" class="post-box-description website" @click="clearWebsite" @click.stop>
+                {{ website }}
+            </p>
+            <button class="post-box-button" @click="sub_create_post">提交</button>
+        </div>
+
     </div>
 </template>
   
 <script>
+import { Web3 } from "web3"
 import isMetaMaskLoggedIn from '@/js/metamask';
 import { PostManagementABI, PostManagementAddress } from "../contracts/PostManagement"
 import { mapMutations } from "vuex"
@@ -136,24 +158,80 @@ export default {
     data() {
         return {
             user_addr: localStorage.getItem('userAddress'),
+            showPostBox: false,
+            headerFocused: false,
+            title: "栏目标题",
+            description: "栏目介绍内容",
+            address: "链上地址（可选）",
+            website: "官方网站（可选）"
         }
     },
     mounted() {
         const $ = require('jquery');
         window.$ = window.Jquery = $;
-        // $(() => {
-        //     $(".left-nav ul a").on("click", function () {
-        //         $(this).find("li").css('color', '#fff')
-        //         $(this).find("svg path").css('fill', '#fff')
-        //         $(this).siblings().find("li").css('color', '#8d8d94');
-        //         $(this).siblings().find("svg path").css('fill', '#8d8d94');
-        //     });
-        // })
     },
     created() {
 
     },
     methods: {
+        async sub_create_post() {
+            this.title = $(".post-box-header").html();
+            this.description = $(".description").html();
+            this.address = $(".address").html();
+            this.website = $(".website").html();
+
+            // 提交新建栏目
+            if (this.title == "栏目标题" || this.title == "") {
+                alert("请输入完整标题");
+                return;
+            } else {
+                if (this.address == "链上地址（可选）" || this.address == "") {
+                    let _address = "";
+                }
+                if (this.website == "链上地址（可选）" || this.website == "") {
+                    let _website = "";
+                }
+                if (this.description == "栏目介绍内容" || this.description == "") {
+                    let _description = "";
+                }
+            }
+            let web3 = new Web3(window.ethereum)
+            this.contractInstance = await new web3.eth.Contract(PostManagementABI, PostManagementAddress);
+            this.contractInstance.methods.CreatePost(this.title, this._address, this._website, this._description).send({ from: this.user_addr })
+                .then(receipt => {
+                    console.log(receipt);
+                })
+        },
+        refresh() {
+            if ($(".post-box-header").html() == "") {
+                this.title = "栏目标题"
+            }
+            if ($(".description").html() == "") {
+                this.description = "栏目介绍内容"
+            }
+            if ($(".address").html() == "") {
+                this.address = "链上地址（可选）"
+            }
+            if ($(".website").html() == "") {
+                this.website = "官方网站（可选）"
+            }
+
+        },
+        clearWebsite() {
+            this.website = ""
+        },
+        clearAddr() {
+            this.address = ""
+        },
+        clearTitle() {
+            this.title = "";
+        },
+        clearDescription() {
+            this.description = "";
+        },
+        CreateBox() {
+            this.showPostBox = !this.showPostBox;
+        },
         ...mapMutations(["set_post_li"]),
         ...mapMutations(["change_post_li_status"]),
         async logout() {
@@ -199,7 +277,7 @@ export default {
             });
             this.set_post_li(this.search_p($("#search-input").val(), post_data));
             this.change_post_li_status();  // 标记当前不属于搜索状态
-            
+
         },
         search_p(key_word, data) {
             let new_data = [];
@@ -221,10 +299,12 @@ export default {
     height: 100%;
     display: flex;
 }
-.active{
-    span{
+
+.active {
+    span {
         color: #fff;
     }
+
     & svg path {
         fill: #fff;
     }

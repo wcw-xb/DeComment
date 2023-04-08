@@ -38,11 +38,8 @@
   flex-grow: 1;
   padding-left: 10px;
   display: flex;
-}
-.post-wrapper .post .post-info .main-content {
-  flex: 9;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 .post-wrapper .post .post-info .point-wrapper {
   position: sticky;
