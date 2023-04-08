@@ -44,7 +44,7 @@
                                 d="M602.493525 338.736864c-32.254611 0-63.968917 16.619516-90.523713 47.111994-26.464745-30.491455-58.211796-47.111994-90.465384-47.111994-75.30715 0-136.547933 66.088184-136.547933 147.31823 0 38.565341 24.124444 89.705068 55.092759 117.8992 28.496008 35.20685 144.231939 140.649344 172.305321 140.649344 26.764574 0 139.576919-100.787474 170.33955-139.365094 32.132838-29.330002 56.360635-80.55978 56.360635-119.18345C739.056807 404.825049 677.801698 338.736864 602.493525 338.736864M644.593366 563.495838l-3.310396 3.013637-2.805906 3.491521c-23.599488 29.627784-93.117794 91.060949-126.208447 112.990401-33.985022-22.557762-106.159832-87.301322-128.297015-114.603131l-2.685155-3.311419-3.163039-2.892887c-21.005406-19.094894-36.640502-55.959499-36.640502-76.128865 0-50.065256 35.894512-90.792842 80.021521-90.792842 15.33629 0 32.31294 9.801227 47.829332 27.643594l42.636053 49.097208 42.663682-49.067532c15.516392-17.841344 32.522718-27.67327 47.860031-27.67327 44.128033 0 80.051197 40.726563 80.051197 90.792842C682.544723 506.314511 666.940326 543.117718 644.593366 563.495838"
                                 fill="#ffffff" p-id="2791"></path>
                         </svg>
-                        <span>发起合作邀请</span>
+                        <span @click="invite_cooperation">发起合作邀请</span>
                     </div>
                 </div>
             </div>
@@ -135,6 +135,7 @@ import Web3 from 'web3';
 import { PostManagementABI, PostManagementAddress } from "../contracts/PostManagement"
 import { CommentManagementABI, CommentManagementAddress } from "../contracts/CommentManagement"
 import { mapMutations, mapState } from "vuex"
+import { RelationShipManagementABI, RelationShipManagementAddress } from '../contracts/RelationShipManagement';
 export default {
     name: "PostDetailView",
     data() {
@@ -160,6 +161,22 @@ export default {
         document.removeEventListener('click', this.handleClickOutside);
     },
     methods: {
+        async invite_cooperation() {
+            //发起合作邀请
+            const web3 = new Web3(window.ethereum);
+
+            let contractInstance = new web3.eth.Contract(RelationShipManagementABI, RelationShipManagementAddress);
+            await contractInstance.methods.invite_cooperation(PostManagementAddress, this.postId).send(
+                { from: this.user_addr }, (err, res) => {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        console.log(res);
+                    }
+                }
+            );
+
+        },
         async get_all_comments() {
             const web3 = new Web3(window.ethereum);
             let contractInstance_comment = new web3.eth.Contract(CommentManagementABI, CommentManagementAddress);

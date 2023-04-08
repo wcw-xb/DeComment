@@ -205,4 +205,4 @@ export const PostManagementABI = [
 	}
 ]
 
-export const PostManagementAddress = "0xc66122A1E699A5d5ba79975c47353d929Af9DAd5";
+export const PostManagementAddress = "0x19C01051F4B94c4F92943fFb5C9D22f75B65d34a";

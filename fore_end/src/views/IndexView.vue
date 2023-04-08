@@ -148,7 +148,7 @@
 </template>
   
 <script>
-import { Web3 } from "web3"
+import Web3 from "web3";
 import isMetaMaskLoggedIn from '@/js/metamask';
 import { PostManagementABI, PostManagementAddress } from "../contracts/PostManagement"
 import { mapMutations } from "vuex"
@@ -175,32 +175,38 @@ export default {
     },
     methods: {
         async sub_create_post() {
-            this.title = $(".post-box-header").html();
-            this.description = $(".description").html();
-            this.address = $(".address").html();
-            this.website = $(".website").html();
+            let title = $(".post-box-header").html();
+            let description = $(".description").html();
+            let address = $(".address").html();
+            let website = $(".website").html();
 
             // 提交新建栏目
-            if (this.title == "栏目标题" || this.title == "") {
+            if (title == "栏目标题" || title == "") {
                 alert("请输入完整标题");
                 return;
             } else {
-                if (this.address == "链上地址（可选）" || this.address == "") {
-                    let _address = "";
+                if (description == "栏目介绍内容" || description == "") {
+                    description = "";
                 }
-                if (this.website == "链上地址（可选）" || this.website == "") {
-                    let _website = "";
+                if (address == "链上地址（可选）" || address == "") {
+                    address = ""
                 }
-                if (this.description == "栏目介绍内容" || this.description == "") {
-                    let _description = "";
+                if (website == "官方网站（可选）" || website == "") {
+                    website = ""
                 }
             }
-            let web3 = new Web3(window.ethereum)
+            let web3 = new Web3(window.ethereum);
             this.contractInstance = await new web3.eth.Contract(PostManagementABI, PostManagementAddress);
-            this.contractInstance.methods.CreatePost(this.title, this._address, this._website, this._description).send({ from: this.user_addr })
-                .then(receipt => {
-                    console.log(receipt);
-                })
+            // console.log(await this.contractInstance.methods.AllPostOwner(this.user_addr).call());
+            if (await this.contractInstance.methods.AllPostOwner(this.user_addr).call() != 0) {
+                alert("你已经新建了");
+            } else {
+                this.contractInstance.methods.CreatePost(title, address, website, description).send({ from: this.user_addr })
+                    .then(receipt => {
+                        console.log(receipt);
+                    })
+            }
+
         },
         refresh() {
             if ($(".post-box-header").html() == "") {

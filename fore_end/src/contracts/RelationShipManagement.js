@@ -66,4 +66,4 @@ export const RelationShipManagementABI = [
 	}
 ]
 
-export const RelationShipManagementAddress = "0xBaD74f3735cd8C3f5745D58da40d5229ADA91ae3";
+export const RelationShipManagementAddress = "0x880F4169196571d5a67952A49F3cbA764F684af8";
